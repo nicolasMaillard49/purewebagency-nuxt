@@ -1,36 +1,202 @@
 /* 
  * Styles globaux pour Pure Web Agency
- * Utilise Tailwind CSS avec Nuxt UI
+ * Design moderne avec palette professionnelle
  */
 
-/* Import de la police Inter (moderne et lisible) */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+/* Import des polices Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap');
 
-/* Variables CSS personnalisees */
+/* Variables CSS - Palette professionnelle */
 :root {
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --color-primary: #3b82f6;
-  --color-primary-dark: #2563eb;
+  /* Polices */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  
+  /* Couleurs principales - Bleu professionnel */
+  --color-primary: #2563eb;
+  --color-primary-dark: #1d4ed8;
+  --color-primary-light: #3b82f6;
+  --color-primary-50: #eff6ff;
+  
+  /* Couleurs neutres */
+  --color-gray-900: #0f172a;
+  --color-gray-800: #1e293b;
+  --color-gray-700: #334155;
+  --color-gray-600: #475569;
+  --color-gray-500: #64748b;
+  --color-gray-400: #94a3b8;
+  --color-gray-300: #cbd5e1;
+  --color-gray-200: #e2e8f0;
+  --color-gray-100: #f1f5f9;
+  --color-gray-50: #f8fafc;
+  
+  /* Couleurs accent */
+  --color-accent: #0ea5e9;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  
+  /* Ombres */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 350ms ease;
 }
 
-/* Base HTML */
+/* Reset et base */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
-  font-family: var(--font-sans);
-}
-
-/* Corps de la page */
-body {
-  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Animations personnalisees */
+body {
+  font-family: var(--font-sans);
+  color: var(--color-gray-800);
+  line-height: 1.6;
+  background-color: #ffffff;
+}
+
+/* Typographie */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-gray-900);
+  letter-spacing: -0.025em;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+/* Liens */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+}
+
+/* Selection de texte */
+::selection {
+  background-color: var(--color-primary-50);
+  color: var(--color-primary-dark);
+}
+
+/* Scrollbar personnalisée */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gray-400);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-500);
+}
+
+/* Classes utilitaires */
+.container-custom {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-custom {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-custom {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Section padding */
+.section-padding {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+}
+
+/* Effet de survol sur cartes */
+.card-hover {
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Animations */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -38,29 +204,129 @@ body {
   }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .animate-fadeInUp {
   animation: fadeInUp 0.6s ease-out forwards;
 }
 
-/* Classes utilitaires pour les sections */
-.section-padding {
-  @apply py-20 px-4 sm:px-6 lg:px-8;
+.animate-fadeIn {
+  animation: fadeIn 0.4s ease-out forwards;
 }
 
-.container-custom {
-  @apply max-w-7xl mx-auto;
+.animate-slideInRight {
+  animation: slideInRight 0.6s ease-out forwards;
 }
 
-/* Effet de survol sur les cartes */
-.card-hover {
-  @apply transition-all duration-300 ease-in-out;
+/* Delays pour animations en cascade */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+
+/* Boutons améliorés */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  color: white;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.39);
 }
 
-.card-hover:hover {
-  @apply transform -translate-y-1 shadow-lg;
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px 0 rgba(37, 99, 235, 0.5);
 }
 
-/* Styles pour le mode sombre */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--color-gray-700);
+  background: white;
+  border: 2px solid var(--color-gray-300);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+/* Mode sombre */
 .dark {
   color-scheme: dark;
+  background-color: var(--color-gray-900);
+  color: var(--color-gray-100);
+}
+
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: white;
+}
+
+/* Focus visible pour accessibilité */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Images responsives */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Listes stylisées */
+.styled-list {
+  list-style: none;
+  padding: 0;
+}
+
+.styled-list li {
+  position: relative;
+  padding-left: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.styled-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--color-primary);
+  border-radius: 50%;
 }
