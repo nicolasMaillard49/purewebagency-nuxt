@@ -227,6 +227,12 @@
     <!-- Team Section -->
     <TeamSection />
 
+    <!-- Blog Section -->
+    <BlogSection />
+
+    <!-- FAQ Section -->
+    <FAQSection />
+
     <!-- Newsletter -->
     <NewsletterSignup />
 
