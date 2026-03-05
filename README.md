@@ -1,21 +1,46 @@
 # Pure Web Agency - Site Nuxt 3
 
-Site web de l'agence Pure Web Agency, refait avec Nuxt 3 pour une performance optimale.
+Site web de l'agence Pure Web Agency, conçu avec une esthétique Minimaliste Luxe.
 
-## Stack technique
+## Design System
+
+### Philosophie
+- **Minimaliste Luxe** : Épure, élégant, haut de gamme
+- **Dark theme** : Fond profond #0a0a0f avec nuances de bleu
+- **Asymétrie** : Layouts audacieux, espacements généreux
+- **Animations subtiles** : Fade-in staggered, transitions fluides
+
+### Palette de couleurs
+- **Fond** : #0a0a0f (presque noir)
+- **Élévations** : #12121a, #1a1a24
+- **Primaire** : #1e3a5f (bleu profond)
+- **Accent** : #4a90d9 (bleu éclatant)
+- **Texte** : #f5f5f7 (blanc cassé), #8b8b9a (gris), #5a5a6a (gris foncé)
+
+### Typographie
+- **Display** : Cormorant Garamond (élégant, serif)
+- **Body** : Space Grotesk (moderne, géométrique)
+
+### Composants clés
+- **Boutons** : Bordures fines, effet shine au hover
+- **Cartes** : Bordures subtiles, animation de soulignement
+- **Grille** : Asymétrique (1fr / 1.5fr)
+- **Formulaires** : Inputs avec bordure bottom uniquement
+
+## Stack Technique
 
 - **Nuxt 3** - Framework Vue.js moderne
-- **Nuxt UI** - Composants UI accessibles et modernes
+- **Nuxt UI** - Composants UI accessibles
 - **Tailwind CSS** - Styles utilitaires
-- **Netlify Forms** - Gestion des formulaires sans backend
-- **Vercel** - Hebergement et deploiement continu
+- **Netlify Forms** - Formulaires sans backend
 
-## Performance
+## Pages
 
-- 100/100 Lighthouse score
-- SEO optimise avec SSR/SSG
-- Temps de chargement < 1s
-- Responsive mobile-first
+1. **Accueil** - Hero asymétrique, services, stats, CTA
+2. **Services** - Détail des prestations avec grille 01/02/03
+3. **Portfolio** - Réalisations en grille éditoriale
+4. **Contact** - Formulaire élégant + coordonnées
+5. **Mentions légales** - Texte légal formaté
 
 ## Installation
 
@@ -23,49 +48,37 @@ Site web de l'agence Pure Web Agency, refait avec Nuxt 3 pour une performance op
 # Cloner le repo
 git clone https://github.com/nicolasMaillard49/purewebagency-nuxt.git
 
-# Installer les dependances
+# Installer les dépendances
 npm install
 
-# Lancer le serveur de developpement
+# Lancer en développement
 npm run dev
 
-# Generer le site statique
+# Générer le site statique
 npm run generate
 ```
 
-## Deploiement
+## Déploiement
 
-Le site est configure pour un deploiement automatique sur Vercel :
-
-1. Connecter le repo GitHub a Vercel
-2. Le deploiement se fait automatiquement a chaque push
-
-## Structure
-
-```
-purewebagency-nuxt/
-├── components/       # Composants reutilisables
-│   ├── AppHeader.vue
-│   └── AppFooter.vue
-├── pages/           # Pages du site
-│   ├── index.vue    # Accueil
-│   ├── services.vue
-│   ├── portfolio.vue
-│   ├── contact.vue
-│   └── legal.vue
-├── assets/          # CSS et assets statiques
-├── nuxt.config.ts   # Configuration Nuxt
-└── package.json
+```bash
+# Déployer sur Vercel
+vercel --prod
 ```
 
-## Pages
+## Performance
 
-- **Accueil** - Presentation de l'agence et services
-- **Services** - Detail des prestations
-- **Realisations** - Portfolio des projets
-- **Contact** - Formulaire de contact avec Netlify Forms
-- **Mentions legales** - Informations legales
+- Score Lighthouse visé : 95+
+- Chargement : < 2s
+- Animations CSS-only (pas de JS lourd)
+- Images optimisées
 
-## Credits
+## Inspirations
 
-Refonte du site purewebagency.com original sous WordPress/Divi.
+Design inspiré des meilleures agences :
+- **Locomotive** (Awwwards Agency of the Year)
+- **Noomo** (3D et animations)
+- **Work & Co** (UX/UI d'excellence)
+
+## License
+
+© 2024 Pure Web Agency. Tous droits réservés.

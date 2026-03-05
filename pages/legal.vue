@@ -1,52 +1,77 @@
 <!--
-  Page Mentions legales
+  Page Mentions Légales - Design Minimaliste Luxe
 -->
 <template>
-  <div class="py-20 bg-white dark:bg-gray-900">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-8">Mentions legales</h1>
-      
-      <div class="prose dark:prose-invert max-w-none">
-        <h2>Identite</h2>
-        <p>
-          Pure Web Agency<br>
-          Adresse: Bordeaux, France<br>
-          Email: contact@purewebagency.com
-        </p>
+  <div class="min-h-screen bg-[#0a0a0f]">
+    <section class="section-luxe">
+      <div class="container-luxe max-w-4xl">
+        <h1 class="text-4xl md:text-5xl text-[#f5f5f7] mb-12 font-display">
+          Mentions légales
+        </h1>
+        
+        <div class="prose prose-invert prose-lg max-w-none space-y-12">
+          <div class="space-y-4">
+            <h2 class="text-2xl text-[#f5f5f7] font-display">Éditeur du site</h2>
+            <p class="text-[#8b8b9a] font-light leading-relaxed">
+              Pure Web Agency<br>
+              Adresse : Bordeaux, France<br>
+              Email : contact@purewebagency.com
+            </p>
+          </div>
 
-        <h2>Hebergement</h2>
-        <p>
-          Ce site est heberge par Vercel Inc.<br>
-          340 S Lemon Ave #4133<br>
-          Walnut, CA 91789<br>
-          Etats-Unis
-        </p>
+          <div class="space-y-4">
+            <h2 class="text-2xl text-[#f5f5f7] font-display">Hébergement</h2>
+            <p class="text-[#8b8b9a] font-light leading-relaxed">
+              Ce site est hébergé par Vercel Inc.<br>
+              340 S Lemon Ave #4133<br>
+              Walnut, CA 91789<br>
+              États-Unis
+            </p>
+          </div>
 
-        <h2>Propriete intellectuelle</h2>
-        <p>
-          L'ensemble du contenu de ce site est protege par les lois francaises 
-          et internationales relatives a la propriete intellectuelle.
-        </p>
+          <div class="space-y-4">
+            <h2 class="text-2xl text-[#f5f5f7] font-display">Propriété intellectuelle</h2>
+            <p class="text-[#8b8b9a] font-light leading-relaxed">
+              L'ensemble du contenu de ce site (textes, images, vidéos, logos, etc.) 
+              est protégé par les lois françaises et internationales relatives à la 
+              propriété intellectuelle. Toute reproduction, représentation, modification, 
+              publication, transmission, dénaturation, totale ou partielle du site ou 
+              de son contenu, par quelque procédé que ce soit, et sur quelque support 
+              que ce soit est interdite sans l'autorisation écrite préalable de Pure Web Agency.
+            </p>
+          </div>
 
-        <h2>Donnees personnelles</h2>
-        <p>
-          Les donnees collectees via le formulaire de contact sont utilisees 
-          uniquement pour repondre a votre demande. Conformement au RGPD, 
-          vous disposez d'un droit d'acces, de rectification et de suppression 
-          de vos donnees.
-        </p>
+          <div class="space-y-4">
+            <h2 class="text-2xl text-[#f5f5f7] font-display">Données personnelles</h2>
+            <p class="text-[#8b8b9a] font-light leading-relaxed">
+              Les données collectées via le formulaire de contact sont utilisées uniquement 
+              pour répondre à votre demande. Conformément au Règlement Général sur la 
+              Protection des Données (RGPD), vous disposez d'un droit d'accès, de rectification, 
+              de suppression et de portabilité de vos données. Pour exercer ces droits, 
+              contactez-nous à l'adresse email indiquée ci-dessus.
+            </p>
+          </div>
+
+          <div class="space-y-4">
+            <h2 class="text-2xl text-[#f5f5f7] font-display">Cookies</h2>
+            <p class="text-[#8b8b9a] font-light leading-relaxed">
+              Ce site n'utilise pas de cookies de traçage. Seuls des cookies techniques 
+              essentiels au fonctionnement du site peuvent être utilisés.
+            </p>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   </div>
 </template>
 
 <script setup>
 useHead({
-  title: 'Mentions legales',
+  title: 'Mentions légales',
   meta: [
     {
       name: 'description',
-      content: 'Mentions legales de Pure Web Agency'
+      content: 'Mentions légales de Pure Web Agency'
     }
   ]
 });

@@ -1,50 +1,51 @@
-// Configuration principale de Nuxt 3
-// https://nuxt.com/docs/api/configuration/nuxt-config
+// Configuration Nuxt - Pure Web Agency
 export default defineNuxtConfig({
-  // Activer les outils de developpement
   devtools: { enabled: true },
   
-  // Modules installes
   modules: [
-    '@nuxt/ui',           // Composants UI modernes
-    '@nuxtjs/color-mode'  // Gestion du mode sombre/clair
+    '@nuxt/ui',
+    '@nuxtjs/color-mode'
   ],
   
-  // Configuration UI
   ui: {
-    global: true,         // Composants disponibles globalement
-    icons: ['heroicons']  // Icones Heroicons integrees
+    global: true,
+    icons: ['heroicons']
   },
   
-  // Mode couleur par defaut
   colorMode: {
-    preference: 'light',
-    fallback: 'light',
+    preference: 'dark',
+    fallback: 'dark',
     classSuffix: ''
   },
   
-  // Fichiers CSS globaux
   css: ['~/assets/css/main.css'],
   
-  // Configuration pour le build statique (SSG)
   nitro: {
     preset: 'static'
   },
   
-  // Meta tags pour SEO
   app: {
     head: {
-      title: 'Pure Web Agency | Agence Web Bordeaux',
+      titleTemplate: '%s | Pure Web Agency',
+      htmlAttrs: {
+        lang: 'fr'
+      },
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { 
           name: 'description', 
-          content: 'Agence web specialisee dans la creation de sites modernes, performants et SEO-friendly. Hebergement en France, conforme RGPD.'
-        }
+          content: 'Agence web créative spécialisée dans les expériences digitales d\'exception. Design sur-mesure, performances optimales.'
+        },
+        { name: 'theme-color', content: '#0a0a0f' },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:site_name', content: 'Pure Web Agency' },
+        { property: 'og:image', content: '/og-image.jpg' }
       ],
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }
       ]
     }
   }
