@@ -1,140 +1,85 @@
-<!--
-  Header de navigation avec menu responsive
-  Utilise Nuxt UI pour les composants (UButton, USlideover)
--->
+<!-- Header - Style Minimaliste Luxe -->
 <template>
-  <header 
-    class="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-gray-900/95 
-           backdrop-blur-md border-b border-gray-200 dark:border-gray-800"
-  >
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        
-        <!-- Logo et lien vers l'accueil -->
-        <NuxtLink 
-          to="/" 
-          class="flex items-center space-x-2 text-xl font-bold text-primary-600 
-                 hover:text-primary-700 transition-colors"
-        >
-          <UIcon name="i-heroicons-code-bracket" class="w-8 h-8" />
-          <span class="hidden sm:inline">Pure Web Agency</span>
-          <span class="sm:hidden">Pure Web</span>
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0f]/80 backdrop-blur-md border-b border-white/5">
+    <div class="container-luxe">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <NuxtLink to="/" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 border border-[#4a90d9]/30 flex items-center justify-center group-hover:border-[#4a90d9] transition-colors duration-400">
+            <span class="text-[#4a90d9] font-display text-xl">P</span>
+          </div>
+          <span class="font-display text-xl text-[#f5f5f7] hidden sm:block">Pure Web Agency</span>
         </NuxtLink>
 
-        <!-- Navigation desktop avec liens de page -->
-        <nav class="hidden md:flex items-center space-x-1">
-          <UButton
-            v-for="item in navItems"
+        <!-- Navigation Desktop -->
+        <nav class="hidden md:flex items-center gap-8">
+          <NuxtLink 
+            v-for="item in navItems" 
             :key="item.to"
             :to="item.to"
-            variant="ghost"
-            color="gray"
-            class="font-medium"
+            class="text-sm uppercase tracking-widest text-[#8b8b9a] hover:text-[#f5f5f7] transition-colors duration-300"
+            :class="{ 'text-[#4a90d9]': $route.path === item.to }"
           >
             {{ item.label }}
-          </UButton>
+          </NuxtLink>
         </nav>
 
-        <!-- Actions: Devis et menu mobile -->
-        <div class="flex items-center space-x-2">
-          <!-- Bouton devis (visible sur desktop) -->
-          <UButton
-            to="/contact"
-            color="primary"
-            class="hidden sm:inline-flex"
-            icon="i-heroicons-rocket-launch"
-          >
-            Devis gratuit
-          </UButton>
+        <!-- CTA & Menu Mobile -->
+        <div class="flex items-center gap-6">
+          <NuxtLink to="/contact" class="btn-luxe hidden sm:inline-flex text-xs py-3 px-6">
+            Contact
+          </NuxtLink>
           
-          <!-- Bouton menu mobile -->
-          <UButton
-            icon="i-heroicons-bars-3"
-            color="gray"
-            variant="ghost"
-            class="md:hidden"
-            @click="isMenuOpen = true"
-            aria-label="Ouvrir le menu"
-          />
+          <button 
+            @click="isMenuOpen = !isMenuOpen"
+            class="md:hidden text-[#f5f5f7] p-2"
+            aria-label="Menu"
+          >
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path v-if="!isMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+              <path v-else stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
         </div>
       </div>
     </div>
 
-    <!-- Menu mobile (Slideover de Nuxt UI) -->
-    <USlideover v-model="isMenuOpen" side="right">
-      <div class="p-4 flex flex-col h-full">
-        <!-- En-tete du menu mobile -->
-        <div class="flex items-center justify-between mb-8">
-          <span class="text-xl font-bold text-primary-600">Pure Web Agency</span>
-          <UButton
-            icon="i-heroicons-x-mark"
-            color="gray"
-            variant="ghost"
-            @click="isMenuOpen = false"
-            aria-label="Fermer le menu"
-          />
-        </div>
-        
-        <!-- Liens de navigation mobile -->
-        <nav class="flex flex-col space-y-2">
-          <UButton
-            v-for="item in navItems"
+    <!-- Menu Mobile -->
+    <Transition 
+      enter-active-class="transition duration-300 ease-out"
+      enter-from-class="opacity-0 -translate-y-4"
+      enter-to-class="opacity-100 translate-y-0"
+      leave-active-class="transition duration-200 ease-in"
+      leave-from-class="opacity-100 translate-y-0"
+      leave-to-class="opacity-0 -translate-y-4"
+    >
+      <div v-if="isMenuOpen" class="md:hidden bg-[#0a0a0f] border-b border-white/5">
+        <nav class="container-luxe py-6 space-y-4">
+          <NuxtLink 
+            v-for="item in navItems" 
             :key="item.to"
             :to="item.to"
-            variant="ghost"
-            color="gray"
-            size="lg"
-            class="justify-start"
             @click="isMenuOpen = false"
+            class="block text-lg text-[#8b8b9a] hover:text-[#f5f5f7] transition-colors"
           >
-            <UIcon :name="item.icon" class="w-5 h-5 mr-2" />
             {{ item.label }}
-          </UButton>
+          </NuxtLink>
+          <NuxtLink to="/contact" @click="isMenuOpen = false" class="btn-luxe inline-flex mt-4">
+            Contact
+          </NuxtLink>
         </nav>
-        
-        <!-- Bouton CTA en bas du menu -->
-        <div class="mt-auto pt-4">
-          <UButton
-            to="/contact"
-            color="primary"
-            size="lg"
-            block
-            icon="i-heroicons-rocket-launch"
-            @click="isMenuOpen = false"
-          >
-            Devis gratuit
-          </UButton>
-        </div>
       </div>
-    </USlideover>
+    </Transition>
   </header>
+  <div class="h-20"></div>
 </template>
 
 <script setup>
-// Etat du menu mobile (ouvert/ferme)
 const isMenuOpen = ref(false);
 
-// Items de navigation avec leurs icones
 const navItems = [
-  { 
-    label: 'Accueil', 
-    to: '/', 
-    icon: 'i-heroicons-home' 
-  },
-  { 
-    label: 'Services', 
-    to: '/services', 
-    icon: 'i-heroicons-wrench-screwdriver' 
-  },
-  { 
-    label: 'Realisations', 
-    to: '/portfolio', 
-    icon: 'i-heroicons-briefcase' 
-  },
-  { 
-    label: 'Contact', 
-    to: '/contact', 
-    icon: 'i-heroicons-envelope' 
-  }
+  { label: 'Accueil', to: '/' },
+  { label: 'Services', to: '/services' },
+  { label: 'Réalisations', to: '/portfolio' }
 ];
 </script>

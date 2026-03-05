@@ -1,48 +1,39 @@
-<!--
-  Footer avec informations de contact et liens
-  Structure en 3 colonnes sur desktop
--->
+<!-- Footer - Style Minimaliste Luxe -->
 <template>
-  <footer class="bg-gray-900 text-gray-300">
-    <!-- Section principale du footer -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+  <footer class="bg-[#0a0a0f] border-t border-white/5">
+    <div class="container-luxe py-20">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
         
-        <!-- Colonne 1: A propos -->
-        <div>
-          <h3 class="text-white text-lg font-semibold mb-4">Pure Web Agency</h3>
-          <p class="text-sm leading-relaxed mb-4">
-            Equipe passionnee par le web, specialisee dans la creation de sites 
-            modernes, performants et adaptes a vos besoins. Savoir-faire francais 
-            et hebergement en France.
+        <!-- Colonne 1: Logo & Description -->
+        <div class="lg:col-span-2 space-y-6">
+          <NuxtLink to="/" class="flex items-center gap-3">
+            <div class="w-10 h-10 border border-[#4a90d9]/30 flex items-center justify-center">
+              <span class="text-[#4a90d9] font-display text-xl">P</span>
+            </div>
+            <span class="font-display text-xl text-[#f5f5f7]">Pure Web Agency</span>
+          </NuxtLink>
+          <p class="text-[#8b8b9a] font-light max-w-md leading-relaxed">
+            Création d'expériences web d'exception. Design sur-mesure, 
+            performances optimales, élégance intemporelle.
           </p>
-          <!-- Icones sociaux -->
-          <div class="flex space-x-4">
-            <UButton
-              v-for="social in socialLinks"
-              :key="social.name"
-              :to="social.url"
-              target="_blank"
-              color="gray"
-              variant="ghost"
-              size="sm"
-              :icon="social.icon"
-              :aria-label="social.name"
-            />
+          <div class="flex gap-4 pt-2">
+            <a href="#" class="w-10 h-10 border border-white/10 flex items-center justify-center text-[#8b8b9a] hover:text-[#4a90d9] hover:border-[#4a90d9] transition-all duration-300">
+              <span class="sr-only">LinkedIn</span>
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="#" class="w-10 h-10 border border-white/10 flex items-center justify-center text-[#8b8b9a] hover:text-[#4a90d9] hover:border-[#4a90d9] transition-all duration-300">
+              <span class="sr-only">Twitter</span>
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+            </a>
           </div>
         </div>
 
-        <!-- Colonne 2: Liens rapides -->
-        <div>
-          <h3 class="text-white text-lg font-semibold mb-4">Liens rapides</h3>
-          <ul class="space-y-2">
-            <li v-for="item in quickLinks" :key="item.to">
-              <NuxtLink 
-                :to="item.to" 
-                class="text-sm hover:text-white transition-colors
-                       flex items-center"
-              >
-                <UIcon name="i-heroicons-chevron-right" class="w-4 h-4 mr-1" />
+        <!-- Colonne 2: Navigation -->
+        <div class="space-y-6">
+          <h4 class="text-[#f5f5f7] uppercase tracking-widest text-sm">Navigation</h4>
+          <ul class="space-y-3">
+            <li v-for="item in navItems" :key="item.to">
+              <NuxtLink :to="item.to" class="text-[#8b8b9a] hover:text-[#f5f5f7] transition-colors duration-300">
                 {{ item.label }}
               </NuxtLink>
             </li>
@@ -50,40 +41,28 @@
         </div>
 
         <!-- Colonne 3: Contact -->
-        <div>
-          <h3 class="text-white text-lg font-semibold mb-4">Contact</h3>
-          <ul class="space-y-3">
-            <li class="flex items-start">
-              <UIcon name="i-heroicons-map-pin" class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" />
-              <span class="text-sm">Bordeaux, France</span>
-            </li>
-            <li class="flex items-center">
-              <UIcon name="i-heroicons-envelope" class="w-5 h-5 mr-2 flex-shrink-0" />
-              <a 
-                href="mailto:contact@purewebagency.com" 
-                class="text-sm hover:text-white transition-colors"
-              >
+        <div class="space-y-6">
+          <h4 class="text-[#f5f5f7] uppercase tracking-widest text-sm">Contact</h4>
+          <ul class="space-y-3 text-[#8b8b9a]">
+            <li>Bordeaux, France</li>
+            <li>
+              <a href="mailto:contact@purewebagency.com" class="hover:text-[#4a90d9] transition-colors">
                 contact@purewebagency.com
               </a>
-            </li>
-            <li class="flex items-center">
-              <UIcon name="i-heroicons-clock" class="w-5 h-5 mr-2 flex-shrink-0" />
-              <span class="text-sm">Lun-Ven: 9h-18h</span>
             </li>
           </ul>
         </div>
       </div>
-    </div>
 
-    <!-- Barre de copyright -->
-    <div class="border-t border-gray-800">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div class="flex flex-col md:flex-row justify-between items-center text-sm">
-          <p>&copy; {{ currentYear }} Pure Web Agency. Tous droits reserves.</p>
-          <p class="mt-2 md:mt-0">
-            Heberge en France avec 
-            <UIcon name="i-heroicons-heart" class="w-4 h-4 inline text-red-500" />
-          </p>
+      <!-- Bottom Bar -->
+      <div class="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-[#5a5a6a] text-sm">
+          © {{ new Date().getFullYear() }} Pure Web Agency. Tous droits réservés.
+        </p>
+        <div class="flex gap-6 text-sm">
+          <NuxtLink to="/legal" class="text-[#5a5a6a] hover:text-[#8b8b9a] transition-colors">
+            Mentions légales
+          </NuxtLink>
         </div>
       </div>
     </div>
@@ -91,22 +70,10 @@
 </template>
 
 <script setup>
-// Annee courante pour le copyright
-const currentYear = new Date().getFullYear();
-
-// Liens vers les reseaux sociaux
-const socialLinks = [
-  { name: 'LinkedIn', url: '#', icon: 'i-heroicons-linkedin' },
-  { name: 'Twitter', url: '#', icon: 'i-heroicons-twitter' },
-  { name: 'Instagram', url: '#', icon: 'i-heroicons-instagram' }
-];
-
-// Liens rapides de navigation
-const quickLinks = [
+const navItems = [
   { label: 'Accueil', to: '/' },
   { label: 'Services', to: '/services' },
-  { label: 'Realisations', to: '/portfolio' },
-  { label: 'Contact', to: '/contact' },
-  { label: 'Mentions legales', to: '/legal' }
+  { label: 'Réalisations', to: '/portfolio' },
+  { label: 'Contact', to: '/contact' }
 ];
 </script>
