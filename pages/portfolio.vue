@@ -22,6 +22,9 @@
       </div>
     </section>
 
+    <!-- Case Studies -->
+    <CaseStudiesSlider />
+
     <!-- Gallery Section -->
     <section class="section-luxe border-t border-white/5">
       <div class="container-luxe">
