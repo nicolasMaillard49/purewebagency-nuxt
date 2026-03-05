@@ -1,5 +1,8 @@
 <template>
   <div class="min-h-screen bg-[#0a0a0f] text-[#f5f5f7] relative overflow-x-hidden">
+    <!-- Animated Background -->
+    <AnimatedBackground />
+    
     <!-- Scroll Progress Bar -->
     <ScrollProgress />
     

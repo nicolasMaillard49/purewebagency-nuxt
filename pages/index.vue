@@ -64,6 +64,9 @@
     <!-- Promise Banner -->
     <PromiseBanner />
 
+    <!-- Trust Badges -->
+    <TrustBadges />
+
     <!-- Client Logos -->
     <ClientLogos />
 
