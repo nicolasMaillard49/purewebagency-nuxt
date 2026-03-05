@@ -233,6 +233,9 @@
     <!-- FAQ Section -->
     <FAQSection />
 
+    <!-- Pricing -->
+    <PricingPlans />
+
     <!-- Newsletter -->
     <NewsletterSignup />
 
