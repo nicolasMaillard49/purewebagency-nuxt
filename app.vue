@@ -27,6 +27,9 @@
       <div v-if="isDesktop" class="cursor-dot" :style="dotStyle"></div>
     </ClientOnly>
     
+    <!-- Social Proof Widget -->
+    <SocialProofWidget />
+    
     <AppHeader />
     <main>
       <NuxtPage />

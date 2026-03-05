@@ -61,6 +61,9 @@
       </div>
     </section>
 
+    <!-- Client Logos -->
+    <ClientLogos />
+
     <!-- Services Section -->
     <section class="section-luxe border-t border-white/5">
       <div class="container-luxe">
@@ -239,26 +242,8 @@
     <!-- Newsletter -->
     <NewsletterSignup />
 
-    <!-- CTA Section -->
-    <section class="section-luxe relative overflow-hidden">
-      <div data-parallax="0.2" class="absolute inset-0 bg-gradient-to-r from-[#1e3a5f]/30 to-transparent"></div>
-      <div class="container-luxe relative z-10">
-        <div class="max-w-3xl mx-auto text-center space-y-8 reveal">
-          <div class="line-accent mx-auto"></div>
-          <h2 class="text-4xl md:text-5xl text-[#f5f5f7]">
-            Prêt à créer quelque chose d'exceptionnel ?
-          </h2>
-          <p class="text-xl text-[#8b8b9a] font-light">
-            Discutons de votre vision. Première consultation gratuite.
-          </p>
-          <div class="pt-4">
-            <NuxtLink to="/contact" class="btn-luxe text-lg px-12 py-4 shine magnetic-btn">
-              Démarrer votre projet
-            </NuxtLink>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- Advanced CTA -->
+    <AdvancedCTA />
   </div>
 </template>
 
