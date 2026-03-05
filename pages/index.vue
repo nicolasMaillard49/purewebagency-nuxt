@@ -16,7 +16,7 @@
       <div class="container-luxe relative z-10 py-32">
         <div class="grid-luxe grid-luxe-2 items-center gap-16">
           <!-- Contenu gauche -->
-          <div class="space-y-8 animate-fadeInUp">
+          <div class="space-y-8 reveal">
             <div class="line-accent"></div>
             
             <h1 class="text-[#f5f5f7] leading-[0.95]">

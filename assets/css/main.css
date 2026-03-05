@@ -315,3 +315,6 @@ p {
 .shine:hover::after {
   transform: translateX(100%);
 }
+
+/* Import des animations avancées */
+@import './animations.css';
