@@ -1,26 +1,27 @@
 <template>
-  <div class="min-h-screen bg-[#0a0a0f] text-[#f5f5f7] relative">
-    <!-- Grain overlay pour texture subtile -->
+  <div class="min-h-screen bg-[#0a0a0f] text-[#f5f5f7] relative overflow-x-hidden">
+    <!-- Grain overlay -->
     <div class="grain-overlay"></div>
     
     <!-- Page Loader -->
-    <div v-if="isLoading" class="page-loader">
-      <div class="loader-text">Pure Web Agency</div>
-    </div>
+    <Transition 
+      enter-active-class="transition-opacity duration-500"
+      leave-active-class="transition-opacity duration-700"
+      leave-from-class="opacity-100"
+      leave-to-class="opacity-0"
+    >
+      <div v-if="isLoading" class="page-loader">
+        <div class="text-center space-y-4">
+          <div class="text-4xl font-display text-[#f5f5f7] animate-pulse">Pure Web Agency</div>
+          <div class="w-32 h-px bg-gradient-to-r from-transparent via-[#4a90d9] to-transparent mx-auto"></div>
+        </div>
+      </div>
+    </Transition>
     
-    <!-- Custom Cursor (desktop only) -->
+    <!-- Custom Cursor -->
     <ClientOnly>
-      <div 
-        v-if="isDesktop" 
-        class="custom-cursor"
-        :class="{ 'hover': isHovering }"
-        :style="cursorStyle"
-      ></div>
-      <div 
-        v-if="isDesktop" 
-        class="cursor-dot"
-        :style="dotStyle"
-      ></div>
+      <div v-if="isDesktop" class="custom-cursor" :class="{ 'hover': isHovering }" :style="cursorStyle"></div>
+      <div v-if="isDesktop" class="cursor-dot" :style="dotStyle"></div>
     </ClientOnly>
     
     <AppHeader />
@@ -32,12 +33,11 @@
 </template>
 
 <script setup>
-// Page loader
 const isLoading = ref(true)
 const isDesktop = ref(false)
 const isHovering = ref(false)
 
-// Cursor position
+// Cursor
 const cursorX = ref(0)
 const cursorY = ref(0)
 const dotX = ref(0)
@@ -51,40 +51,50 @@ const dotStyle = computed(() => ({
   transform: `translate(${dotX.value - 2}px, ${dotY.value - 2}px)`
 }))
 
-// Initialize on client
 onMounted(() => {
-  // Check if desktop
+  // Check device
   isDesktop.value = window.matchMedia('(pointer: fine)').matches
   
   // Page loader
   setTimeout(() => {
     isLoading.value = false
-  }, 1500)
+  }, 2000)
   
   // Custom cursor
   if (isDesktop.value) {
-    document.addEventListener('mousemove', (e) => {
+    let rafId = null
+    
+    const updateCursor = (e) => {
       cursorX.value = e.clientX
       cursorY.value = e.clientY
       
-      // Dot follows with slight delay
-      setTimeout(() => {
-        dotX.value = e.clientX
-        dotY.value = e.clientY
-      }, 50)
-    })
+      if (!rafId) {
+        rafId = requestAnimationFrame(() => {
+          dotX.value = e.clientX
+          dotY.value = e.clientY
+          rafId = null
+        })
+      }
+    }
+    
+    document.addEventListener('mousemove', updateCursor, { passive: true })
     
     // Hover detection
-    const hoverElements = document.querySelectorAll('a, button, .btn-luxe, .card-luxe')
-    hoverElements.forEach(el => {
-      el.addEventListener('mouseenter', () => isHovering.value = true)
-      el.addEventListener('mouseleave', () => isHovering.value = false)
-    })
+    const addHoverListeners = () => {
+      const hoverElements = document.querySelectorAll('a, button, .btn-luxe, .card-luxe, .magnetic-btn')
+      hoverElements.forEach(el => {
+        el.addEventListener('mouseenter', () => isHovering.value = true)
+        el.addEventListener('mouseleave', () => isHovering.value = false)
+      })
+    }
+    
+    // Run after DOM is ready
+    setTimeout(addHoverListeners, 100)
+    
+    // Re-run on page change
+    const observer = new MutationObserver(addHoverListeners)
+    observer.observe(document.body, { childList: true, subtree: true })
   }
-  
-  // Initialize scroll reveal
-  const { initScrollReveal } = useScrollReveal()
-  initScrollReveal()
 })
 
 // SEO
@@ -100,7 +110,9 @@ useHead({
       name: 'description', 
       content: 'Agence web créative spécialisée dans les expériences digitales d\'exception. Design sur-mesure, performances optimales.'
     },
-    { name: 'theme-color', content: '#0a0a0f' }
+    { name: 'theme-color', content: '#0a0a0f' },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:site_name', content: 'Pure Web Agency' }
   ],
   link: [
     { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
