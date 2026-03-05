@@ -1,189 +1,113 @@
 <!--
   Page Portfolio - Design Minimaliste Luxe
-  Showcase des réalisations avec style éditorial
+  Showcase des réalisations avec galerie interactive
 -->
 <template>
   <div class="min-h-screen bg-[#0a0a0f]">
     <!-- Hero Section -->
-    <section class="relative min-h-[60vh] flex items-center">
+    <section class="relative min-h-[50vh] flex items-center">
       <div class="container-luxe py-32">
-        <div class="max-w-4xl">
-          <span class="text-[#4a90d9] uppercase tracking-[0.3em] text-sm mb-6 block animate-fadeIn">
+        <div class="max-w-4xl reveal">
+          <span class="text-[#4a90d9] uppercase tracking-[0.3em] text-sm mb-6 block">
             Nos Réalisations
           </span>
-          <h1 class="text-5xl md:text-7xl lg:text-8xl text-[#f5f5f7] leading-[0.9] mb-8 animate-fadeInUp">
-            L'excellence<br>en action
+          <h1 class="text-5xl md:text-7xl text-[#f5f5f7] leading-[0.9] mb-8">
+            Portfolio<br>d'excellence
           </h1>
-          <p class="text-xl text-[#8b8b9a] font-light max-w-2xl leading-relaxed animate-fadeInUp delay-200">
-            Une sélection de projets qui illustrent notre approche du design 
-            et notre exigence technique.
+          <p class="text-xl text-[#8b8b9a] font-light max-w-2xl leading-relaxed">
+            Nos projets illustrent notre approche du design et notre exigence technique.
+            Chaque création est unique, sur-mesure, pensée pour performer.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Portfolio Grid - Style éditorial -->
+    <!-- Gallery Section -->
     <section class="section-luxe border-t border-white/5">
       <div class="container-luxe">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-px bg-white/5">
-          
-          <!-- Projet 1 - Grand format -->
-          <div class="lg:col-span-2 bg-[#0a0a0f] group cursor-pointer">
-            <div class="grid grid-cols-1 lg:grid-cols-2">
-              <div class="aspect-[16/10] lg:aspect-auto bg-gradient-to-br from-[#1e3a5f]/30 to-[#4a90d9]/10 relative overflow-hidden">
-                <div class="absolute inset-0 flex items-center justify-center">
-                  <div class="w-32 h-32 border border-[#4a90d9]/30 flex items-center justify-center">
-                    <span class="text-[#4a90d9] font-display text-4xl">R</span>
-                  </div>
-                </div>
-                <div class="absolute inset-0 bg-[#0a0a0f]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                  <span class="text-[#f5f5f7] text-sm uppercase tracking-widest">Voir le projet</span>
-                </div>
-              </div>
-              <div class="p-12 lg:p-16 flex flex-col justify-center space-y-6">
-                <div class="flex items-center gap-4">
-                  <span class="text-[#4a90d9] text-sm uppercase tracking-widest">Site Vitrine</span>
-                  <span class="w-12 h-px bg-white/20"></span>
-                  <span class="text-[#5a5a6a] text-sm">2024</span>
-                </div>
-                <h2 class="text-3xl lg:text-4xl text-[#f5f5f7] font-display group-hover:text-[#4a90d9] transition-colors duration-300">
-                  Restaurant Le Négociant
-                </h2>
-                <p class="text-[#8b8b9a] font-light leading-relaxed">
-                  Refonte complète du site web d'un restaurant gastronomique bordelais. 
-                  Design élégant, réservation en ligne et expérience mobile optimisée.
-                </p>
-                <div class="flex gap-3 pt-4">
-                  <span class="px-4 py-2 border border-white/10 text-[#8b8b9a] text-xs uppercase tracking-wider">Vue.js</span>
-                  <span class="px-4 py-2 border border-white/10 text-[#8b8b9a] text-xs uppercase tracking-wider">Nuxt</span>
-                  <span class="px-4 py-2 border border-white/10 text-[#8b8b9a] text-xs uppercase tracking-wider">SEO</span>
-                </div>
-              </div>
+        <div class="space-y-16">
+          <!-- Filter/Info -->
+          <div class="flex items-center justify-between reveal">
+            <div>
+              <p class="text-[#8b8b9a] text-sm">{{ projects.length }} projets affichés</p>
+            </div>
+            <div class="flex gap-2">
+              <button 
+                v-for="filter in filters"
+                :key="filter"
+                @click="activeFilter = filter"
+                class="px-4 py-2 text-xs uppercase tracking-widest transition-all duration-300"
+                :class="activeFilter === filter 
+                  ? 'bg-[#4a90d9] text-[#0a0a0f]' 
+                  : 'border border-white/10 text-[#8b8b9a] hover:border-[#4a90d9]'">
+                {{ filter }}
+              </button>
             </div>
           </div>
 
-          <!-- Projet 2 - Format standard -->
-          <div class="bg-[#0a0a0f] group cursor-pointer border-r border-white/5">
-            <div class="aspect-[4/3] bg-gradient-to-br from-[#4a90d9]/10 to-[#1e3a5f]/20 relative overflow-hidden">
-              <div class="absolute inset-0 flex items-center justify-center">
-                <div class="w-24 h-24 border border-[#4a90d9]/30 flex items-center justify-center">
-                  <span class="text-[#4a90d9] font-display text-3xl">B</span>
-                </div>
-              </div>
-              <div class="absolute inset-0 bg-[#0a0a0f]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                <span class="text-[#f5f5f7] text-sm uppercase tracking-widest">Voir le projet</span>
-              </div>
-            </div>
-            <div class="p-8 space-y-4">
-              <div class="flex items-center gap-3">
-                <span class="text-[#4a90d9] text-xs uppercase tracking-widest">E-commerce</span>
-                <span class="text-[#5a5a6a] text-xs">2024</span>
-              </div>
-              <h3 class="text-2xl text-[#f5f5f7] font-display group-hover:text-[#4a90d9] transition-colors duration-300">
-                Boutique Épure
-              </h3>
-              <p class="text-[#8b8b9a] font-light text-sm leading-relaxed">
-                Boutique en ligne pour une marque de mode durable. Design minimaliste 
-                et expérience d'achat fluide.
-              </p>
-            </div>
-          </div>
+          <!-- Gallery Grid with Lightbox -->
+          <GalleryLightbox :images="filteredProjects" />
+        </div>
+      </div>
+    </section>
 
-          <!-- Projet 3 - Format standard -->
-          <div class="bg-[#0a0a0f] group cursor-pointer">
-            <div class="aspect-[4/3] bg-gradient-to-bl from-[#1e3a5f]/20 to-[#4a90d9]/5 relative overflow-hidden">
-              <div class="absolute inset-0 flex items-center justify-center">
-                <div class="w-24 h-24 border border-[#4a90d9]/30 flex items-center justify-center">
-                  <span class="text-[#4a90d9] font-display text-3xl">A</span>
-                </div>
-              </div>
-              <div class="absolute inset-0 bg-[#0a0a0f]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                <span class="text-[#f5f5f7] text-sm uppercase tracking-widest">Voir le projet</span>
-              </div>
+    <!-- Stats Section -->
+    <section class="py-24 border-t border-white/5 bg-[#12121a]">
+      <div class="container-luxe">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/5">
+          <div v-for="(stat, index) in stats" 
+               :key="stat.label"
+               class="bg-[#0a0a0f] p-12 text-center space-y-3 reveal"
+               :class="`reveal-delay-${index + 1}`">
+            <div class="text-4xl font-display text-[#f5f5f7]">
+              <span :data-counter="stat.value">0</span>{{ stat.suffix }}
             </div>
-            <div class="p-8 space-y-4">
-              <div class="flex items-center gap-3">
-                <span class="text-[#4a90d9] text-xs uppercase tracking-widest">Application</span>
-                <span class="text-[#5a5a6a] text-xs">2023</span>
-              </div>
-              <h3 class="text-2xl text-[#f5f5f7] font-display group-hover:text-[#4a90d9] transition-colors duration-300">
-                ArchiVision
-              </h3>
-              <p class="text-[#8b8b9a] font-light text-sm leading-relaxed">
-                Plateforme de visualisation 3D pour architectes. Interface immersive 
-                et performances optimales.
-              </p>
-            </div>
+            <div class="text-[#8b8b9a] uppercase tracking-widest text-xs">{{ stat.label }}</div>
           </div>
+        </div>
+      </div>
+    </section>
 
-          <!-- Projet 4 - Grand format alterné -->
-          <div class="lg:col-span-2 bg-[#0a0a0f] group cursor-pointer border-t border-white/5">
-            <div class="grid grid-cols-1 lg:grid-cols-2">
-              <div class="p-12 lg:p-16 flex flex-col justify-center space-y-6 order-2 lg:order-1">
-                <div class="flex items-center gap-4">
-                  <span class="text-[#4a90d9] text-sm uppercase tracking-widest">Corporate</span>
-                  <span class="w-12 h-px bg-white/20"></span>
-                  <span class="text-[#5a5a6a] text-sm">2023</span>
-                </div>
-                <h2 class="text-3xl lg:text-4xl text-[#f5f5f7] font-display group-hover:text-[#4a90d9] transition-colors duration-300">
-                  Cabinet Devaux & Associés
-                </h2>
-                <p class="text-[#8b8b9a] font-light leading-relaxed">
-                  Site institutionnel pour un cabinet d'avocats d'affaires. 
-                  Design sérieux et élégant, conformité RGPD optimale.
-                </p>
-                <div class="flex gap-3 pt-4">
-                  <span class="px-4 py-2 border border-white/10 text-[#8b8b9a] text-xs uppercase tracking-wider">WordPress</span>
-                  <span class="px-4 py-2 border border-white/10 text-[#8b8b9a] text-xs uppercase tracking-wider">Sur-mesure</span>
-                </div>
-              </div>
-              <div class="aspect-[16/10] lg:aspect-auto bg-gradient-to-bl from-[#4a90d9]/10 to-[#1e3a5f]/30 relative overflow-hidden order-1 lg:order-2">
-                <div class="absolute inset-0 flex items-center justify-center">
-                  <div class="w-32 h-32 border border-[#4a90d9]/30 flex items-center justify-center">
-                    <span class="text-[#4a90d9] font-display text-4xl">D</span>
-                  </div>
-                </div>
-                <div class="absolute inset-0 bg-[#0a0a0f]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                  <span class="text-[#f5f5f7] text-sm uppercase tracking-widest">Voir le projet</span>
-                </div>
-              </div>
+    <!-- Client Testimonials -->
+    <section class="section-luxe">
+      <div class="container-luxe">
+        <div class="grid md:grid-cols-2 gap-8">
+          <div v-for="(testimonial, index) in testimonials"
+               :key="index"
+               class="bg-[#12121a] border border-white/10 p-8 space-y-6 hover:border-[#4a90d9]/30 transition-colors reveal"
+               :class="`reveal-delay-${(index % 2) + 1}`">
+            <div class="flex gap-1">
+              <span v-for="n in 5" :key="n" class="text-[#4a90d9]">★</span>
+            </div>
+            <p class="text-[#f5f5f7] font-light leading-relaxed italic">
+              "{{ testimonial.quote }}"
+            </p>
+            <div class="pt-4 border-t border-white/5">
+              <p class="text-[#f5f5f7] font-display text-sm">{{ testimonial.author }}</p>
+              <p class="text-[#8b8b9a] text-xs mt-1">{{ testimonial.company }}</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Testimonial Section -->
-    <section class="section-luxe bg-[#12121a] border-t border-white/5">
-      <div class="container-luxe">
-        <div class="max-w-4xl mx-auto text-center space-y-8">
-          <div class="text-6xl text-[#4a90d9]/30 font-display">"</div>
-          <blockquote class="text-2xl md:text-3xl text-[#f5f5f7] font-light leading-relaxed">
-            Pure Web Agency a transformé notre vision en réalité digitale. 
-            Leur attention aux détails et leur exigence technique ont dépassé 
-            toutes nos attentes.
-          </blockquote>
+    <!-- CTA -->
+    <section class="section-luxe relative overflow-hidden">
+      <div data-parallax="0.2" class="absolute inset-0 bg-gradient-to-r from-[#1e3a5f]/30 to-transparent"></div>
+      <div class="container-luxe relative z-10">
+        <div class="max-w-3xl mx-auto text-center space-y-8 reveal">
+          <h2 class="text-4xl md:text-5xl text-[#f5f5f7]">
+            Envie de créer ensemble ?
+          </h2>
+          <p class="text-xl text-[#8b8b9a] font-light">
+            Parlons de votre projet. Première consultation gratuite.
+          </p>
           <div class="pt-4">
-            <div class="text-[#f5f5f7] font-display text-lg">Marie Dubois</div>
-            <div class="text-[#8b8b9a] text-sm">Fondatrice, Boutique Épure</div>
+            <NuxtLink to="/contact" class="btn-luxe text-lg px-12 py-4 shine">
+              Démarrer un projet
+            </NuxtLink>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="section-luxe border-t border-white/5">
-      <div class="container-luxe text-center">
-        <div class="line-accent mx-auto mb-8"></div>
-        <h2 class="text-4xl md:text-5xl text-[#f5f5f7] mb-8">
-          Votre projet mérite l'excellence
-        </h2>
-        <NuxtLink to="/contact" class="btn-luxe text-lg px-12 py-4 shine inline-flex items-center gap-3">
-          Commencer votre projet
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-          </svg>
-        </NuxtLink>
       </div>
     </section>
   </div>
@@ -191,12 +115,105 @@
 
 <script setup>
 useHead({
-  title: 'Réalisations | Pure Web Agency',
+  title: 'Portfolio | Nos réalisations',
   meta: [
     {
       name: 'description',
-      content: 'Découvrez nos projets web sélectionnés. Sites vitrines, e-commerce et applications sur-mesure.'
+      content: 'Découvrez nos réalisations : sites web, e-commerce, applications. Projets sur-mesure de qualité.'
     }
   ]
-});
+})
+
+const activeFilter = ref('Tous')
+const filters = ref(['Tous', 'Site Vitrine', 'E-commerce', 'Application'])
+
+const projects = ref([
+  {
+    title: 'Restaurant Le Négociant',
+    category: 'Site Vitrine',
+    description: 'Refonte complète avec réservation en ligne',
+    thumb: 'https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=800&h=600&fit=crop',
+    full: 'https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=1600&h=1200&fit=crop'
+  },
+  {
+    title: 'E-shop Luxe Bordeaux',
+    category: 'E-commerce',
+    description: 'Boutique en ligne avec intégration Stripe',
+    thumb: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop',
+    full: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&h=1200&fit=crop'
+  },
+  {
+    title: 'Agence Immobilière Digitale',
+    category: 'Site Vitrine',
+    description: 'Plateforme de recherche immobilière',
+    thumb: 'https://images.unsplash.com/photo-1460925895917-aaf4b91c7670?w=800&h=600&fit=crop',
+    full: 'https://images.unsplash.com/photo-1460925895917-aaf4b91c7670?w=1600&h=1200&fit=crop'
+  },
+  {
+    title: 'Dashboard Analytics',
+    category: 'Application',
+    description: 'Tableau de bord en temps réel',
+    thumb: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
+    full: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&h=1200&fit=crop'
+  },
+  {
+    title: 'Plateforme SaaS',
+    category: 'Application',
+    description: 'Solution collaborative multi-utilisateurs',
+    thumb: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop',
+    full: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1600&h=1200&fit=crop'
+  },
+  {
+    title: 'Magazine Digital',
+    category: 'Site Vitrine',
+    description: 'Plateforme éditoriale avec abonnement',
+    thumb: 'https://images.unsplash.com/photo-1553744512-d4526485b79f?w=800&h=600&fit=crop',
+    full: 'https://images.unsplash.com/photo-1553744512-d4526485b79f?w=1600&h=1200&fit=crop'
+  }
+])
+
+const stats = ref([
+  { value: 50, suffix: '+', label: 'Projets' },
+  { value: 100, suffix: '%', label: 'Satisfaction' },
+  { value: 5, suffix: '+', label: 'Années' },
+  { value: 24, suffix: 'h', label: 'Support' }
+])
+
+const testimonials = ref([
+  {
+    quote: 'Agence professionnelle, réactive et compétente. Notre site a transformé nos ventes.',
+    author: 'Marie Dubois',
+    company: 'Restaurant Étoilé'
+  },
+  {
+    quote: 'Excellent suivi, délais respectés, résultats visibles. À recommander.',
+    author: 'Jean Moreau',
+    company: 'E-commerce Luxe'
+  },
+  {
+    quote: 'L\'équipe comprend notre métier et nous propose des solutions innovantes.',
+    author: 'Sophie Martin',
+    company: 'Agence Immobilière'
+  },
+  {
+    quote: 'Support réactif, migrations fluides, performances optimales. Parfait !',
+    author: 'Laurent Petit',
+    company: 'Startup Tech'
+  }
+])
+
+const filteredProjects = computed(() => {
+  if (activeFilter.value === 'Tous') return projects.value
+  return projects.value.filter(p => p.category === activeFilter.value)
+})
+
+onMounted(() => {
+  const { initScrollReveal } = useScrollReveal()
+  const { initCounters } = useAnimatedCounter()
+  const { initParallax } = useParallax()
+  
+  initScrollReveal()
+  initCounters()
+  initParallax()
+})
 </script>

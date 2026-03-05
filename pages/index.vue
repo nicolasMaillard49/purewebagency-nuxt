@@ -181,6 +181,15 @@
       </div>
     </section>
 
+    <!-- Marquee Section -->
+    <MarqueeSection />
+
+    <!-- Process Timeline -->
+    <ProcessTimeline />
+
+    <!-- Testimonials -->
+    <TestimonialsSection />
+
     <!-- CTA Section -->
     <section class="section-luxe relative overflow-hidden">
       <div data-parallax="0.2" class="absolute inset-0 bg-gradient-to-r from-[#1e3a5f]/30 to-transparent"></div>
@@ -254,9 +263,11 @@ onMounted(() => {
   const { initScrollReveal } = useScrollReveal()
   const { initCounters } = useAnimatedCounter()
   const { initParallax } = useParallax()
+  const { initTilt } = useTiltEffect()
   
   initScrollReveal()
   initCounters()
   initParallax()
+  initTilt()
 })
 </script>
