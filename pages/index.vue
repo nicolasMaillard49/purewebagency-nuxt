@@ -181,14 +181,54 @@
       </div>
     </section>
 
+    <!-- Feature Highlights -->
+    <FeatureHighlights />
+
     <!-- Marquee Section -->
     <MarqueeSection />
+
+    <!-- Feature Highlights 2 -->
+    <section class="section-luxe bg-gradient-to-r from-[#1a1a24] to-[#12121a]">
+      <div class="container-luxe">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+          <div class="space-y-6 reveal">
+            <span class="text-[#4a90d9] uppercase tracking-widest text-sm">Pourquoi Pure Web</span>
+            <h2 class="text-[#f5f5f7]">
+              Plus qu'une agence,<br>un partenaire
+            </h2>
+            <div class="line-accent"></div>
+            <p class="text-[#8b8b9a] font-light leading-relaxed text-lg">
+              Nous croyons au design stratégique et au code de qualité. 
+              Chaque projet est traité avec rigueur et passion.
+            </p>
+          </div>
+          <div class="space-y-4 reveal reveal-delay-2">
+            <div v-for="(point, index) in whyPoints"
+                 :key="point"
+                 class="flex gap-4 p-6 bg-[#12121a] border border-white/5 hover:border-[#4a90d9]/30 rounded-sm transition-colors duration-300">
+              <div class="w-6 h-6 rounded-full bg-[#4a90d9] flex-shrink-0 flex items-center justify-center">
+                <svg class="w-4 h-4 text-[#0a0a0f]" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                </svg>
+              </div>
+              <span class="text-[#f5f5f7] font-light">{{ point }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Process Timeline -->
     <ProcessTimeline />
 
     <!-- Testimonials -->
     <TestimonialsSection />
+
+    <!-- Team Section -->
+    <TeamSection />
+
+    <!-- Newsletter -->
+    <NewsletterSignup />
 
     <!-- CTA Section -->
     <section class="section-luxe relative overflow-hidden">

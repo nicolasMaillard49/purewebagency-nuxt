@@ -1,0 +1,9 @@
+// Pourquoi Pure Web
+const whyPoints = ref([
+  'Expérience de 5+ ans dans le web design',
+  'Équipe de 4+ experts passionnés',
+  'Plus de 50 projets livrés avec succès',
+  'Support réactif et disponibilité garantie',
+  '100% des clients satisfaits ou remboursés',
+  'Technologies modernes et pérennes'
+])
