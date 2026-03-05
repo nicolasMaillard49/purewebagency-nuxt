@@ -61,6 +61,9 @@
       </div>
     </section>
 
+    <!-- Promise Banner -->
+    <PromiseBanner />
+
     <!-- Client Logos -->
     <ClientLogos />
 

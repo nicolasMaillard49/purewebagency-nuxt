@@ -117,6 +117,9 @@
     <!-- Pricing Section -->
     <PricingPlans />
 
+    <!-- Comparison Table -->
+    <ComparisonTable />
+
     <!-- Process Section -->
     <section class="section-luxe bg-[#12121a] border-t border-white/5">
       <div class="container-luxe">
