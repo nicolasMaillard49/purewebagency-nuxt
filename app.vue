@@ -38,6 +38,9 @@
       <NuxtPage />
     </main>
     <AppFooter />
+    
+    <!-- Scroll to Top Button -->
+    <ScrollToTop />
   </div>
 </template>
 

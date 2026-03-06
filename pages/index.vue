@@ -88,23 +88,23 @@
           </div>
           
           <!-- Cartes services avec reveal staggered -->
-          <div class="space-y-6">
+          <div class="space-y-4 md:space-y-6">
             <div v-for="(service, index) in services" :key="service.title" 
-                 class="card-luxe group reveal"
+                 class="card-luxe group reveal w-full"
                  :class="`reveal-delay-${index + 1}`">
-              <div class="flex items-start gap-6">
-                <div class="text-5xl font-display text-[#4a90d9]/30 group-hover:text-[#4a90d9] transition-colors duration-600">
+              <div class="flex items-start gap-4 md:gap-6">
+                <div class="text-3xl md:text-5xl font-display text-[#4a90d9]/30 group-hover:text-[#4a90d9] transition-colors duration-600 flex-shrink-0">
                   0{{ index + 1 }}
                 </div>
-                <div class="flex-1 space-y-3">
-                  <h3 class="text-2xl text-[#f5f5f7] group-hover:text-[#4a90d9] transition-colors duration-400">
+                <div class="flex-1 space-y-2 md:space-y-3 min-w-0">
+                  <h3 class="text-xl md:text-2xl text-[#f5f5f7] group-hover:text-[#4a90d9] transition-colors duration-400">
                     {{ service.title }}
                   </h3>
-                  <p class="text-[#8b8b9a] font-light leading-relaxed">
+                  <p class="text-[#8b8b9a] font-light leading-relaxed text-sm md:text-base">
                     {{ service.description }}
                   </p>
                 </div>
-                <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-400">
+                <div class="hidden md:block opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex-shrink-0">
                   <span class="text-[#4a90d9] text-2xl">→</span>
                 </div>
               </div>
@@ -163,26 +163,40 @@
             </div>
           </div>
           
-          <!-- Illustration avec parallaxe -->
+          <!-- Stats visuelles fixes -->
           <div class="relative reveal reveal-delay-2">
-            <div data-parallax="0.1" class="aspect-square rounded-sm bg-gradient-to-br from-[#1e3a5f]/30 to-[#4a90d9]/10 p-1">
-              <div class="w-full h-full bg-[#0a0a0f] flex items-center justify-center">
-                <div class="text-center space-y-4">
-                  <div class="text-6xl font-display text-[#4a90d9]">100%</div>
-                  <div class="text-[#8b8b9a] uppercase tracking-widest text-sm">Projets livrés dans les délais</div>
+            <!-- Card principale -->
+            <div class="bg-[#1a1a24] rounded-sm p-8 border border-white/5">
+              <div class="grid grid-cols-2 gap-8">
+                <div class="text-center">
+                  <div class="text-5xl font-display text-[#4a90d9] mb-2">100%</div>
+                  <div class="text-[#8b8b9a] text-xs uppercase tracking-widest">Délais respectés</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-5xl font-display text-[#4a90d9] mb-2">50+</div>
+                  <div class="text-[#8b8b9a] text-xs uppercase tracking-widest">Projets livrés</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-5xl font-display text-[#4a90d9] mb-2">5+</div>
+                  <div class="text-[#8b8b9a] text-xs uppercase tracking-widest">Années exp.</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-5xl font-display text-[#4a90d9] mb-2">24h</div>
+                  <div class="text-[#8b8b9a] text-xs uppercase tracking-widest">Support</div>
                 </div>
               </div>
             </div>
-            <!-- Badge flottant avec parallaxe inverse -->
-            <div data-parallax="-0.2" class="absolute -bottom-6 -left-6 bg-[#12121a] rounded-sm border border-white/10 p-6 flex items-center gap-4">
-              <div class="w-12 h-12 rounded-full bg-[#4a90d9]/20 flex items-center justify-center">
-                <svg class="w-6 h-6 text-[#4a90d9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            
+            <!-- Badge RGPD -->
+            <div class="mt-6 bg-[#12121a] rounded-sm border border-white/5 p-4 flex items-center gap-4">
+              <div class="w-10 h-10 rounded-full bg-[#4a90d9]/20 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-[#4a90d9]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                 </svg>
               </div>
               <div>
-                <p class="font-display text-lg text-[#f5f5f7]">RGPD Compliant</p>
-                <p class="text-sm text-[#8b8b9a]">100% sécurisé</p>
+                <p class="font-display text-[#f5f5f7]">RGPD Compliant</p>
+                <p class="text-xs text-[#8b8b9a]">100% sécurisé · Hébergement France</p>
               </div>
             </div>
           </div>
@@ -236,14 +250,11 @@
     <!-- Team Section -->
     <TeamSection />
 
-    <!-- Blog Section -->
-    <BlogSection />
-
     <!-- FAQ Section -->
     <FAQSection />
 
-    <!-- Pricing -->
-    <PricingPlans />
+    <!-- Pricing Carousel -->
+    <PricingCarousel />
 
     <!-- Newsletter -->
     <NewsletterSignup />
