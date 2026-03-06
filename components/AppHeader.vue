@@ -79,16 +79,16 @@
           </div>
           
           <!-- Texte logo avec reveal staggered -->
-          <div class="hidden sm:flex flex-col overflow-hidden">
+          <div class="hidden sm:flex flex-col">
             <span 
-              class="font-display text-lg text-[#f5f5f7] transition-all duration-300 transform"
-              :class="logoHover ? 'translate-x-1 text-[#4a90d9]' : ''"
+              class="font-display text-lg text-[#f5f5f7] transition-all duration-300 transform translate-x-0"
+              :class="logoHover ? 'translate-x-1 text-[#4a90d9]' : 'translate-x-0'"
             >
               Pure
             </span>
             <span 
-              class="text-[#5a5a6a] text-[10px] uppercase tracking-[0.3em] transition-all duration-300 delay-75"
-              :class="logoHover ? 'translate-x-2 text-[#8b8b9a]' : ''"
+              class="text-[#5a5a6a] text-[10px] uppercase tracking-[0.3em] transition-all duration-300 delay-75 translate-x-0"
+              :class="logoHover ? 'translate-x-2 text-[#8b8b9a]' : 'translate-x-0 text-[#5a5a6a]'"
             >
               Web Agency
             </span>
