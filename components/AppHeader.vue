@@ -210,8 +210,8 @@
         class="lg:hidden fixed inset-0 top-20 z-40"
         @click.self="closeMenu"
       >
-        <!-- Backdrop blur -->
-        <div class="absolute inset-0 bg-[#0a0a0f]/98 backdrop-blur-xl"></div>
+        <!-- Backdrop (optimized - no blur for performance) -->
+        <div class="absolute inset-0 bg-[#0a0a0f]"></div>
         
         <!-- Contenu menu -->
         <nav class="relative h-full flex flex-col justify-center px-8">
