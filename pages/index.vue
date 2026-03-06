@@ -5,60 +5,79 @@
 -->
 <template>
   <div class="min-h-screen bg-[#0a0a0f]">
-    <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center overflow-hidden">
-      <!-- Arrière-plan avec parallaxe -->
-      <div data-parallax="0.3" class="absolute inset-0 bg-gradient-to-br from-[#0a0a0f] via-[#12121a] to-[#1e3a5f]/20"></div>
+    <!-- Hero Section - Ultra Impact -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <!-- Background layers -->
+      <div class="absolute inset-0 bg-[#0a0a0f]"></div>
       
-      <!-- Formes décoratives avec parallaxe -->
-      <div data-parallax="0.5" class="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-[#1e3a5f]/10 to-transparent rounded-full blur-3xl"></div>
-      <div data-parallax="0.2" class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-[#4a90d9]/5 to-transparent rounded-full blur-3xl"></div>
+      <!-- Animated gradient orbs -->
+      <div class="absolute top-1/4 -right-32 w-[600px] h-[600px] bg-[#4a90d9]/20 rounded-full blur-[120px] animate-pulse"></div>
+      <div class="absolute -bottom-32 -left-32 w-[500px] h-[500px] bg-[#1e3a5f]/30 rounded-full blur-[100px]"></div>
       
-      <div class="container-luxe relative z-10 py-32">
-        <div class="grid-luxe grid-luxe-2 items-center gap-16">
-          <!-- Contenu gauche -->
-          <div class="space-y-8 reveal">
-            <div class="line-accent"></div>
-            
-            <h1 class="text-[#f5f5f7] leading-[0.95]">
-              Pure<br>
-              <span class="text-gradient">Web Agency</span>
-            </h1>
-            
-            <p class="text-xl text-[#8b8b9a] font-light max-w-md leading-relaxed">
-              Nous créons des expériences digitales d'exception. 
-              Design sur-mesure, performances optimales, élégance intemporelle.
-            </p>
-            
-            <div class="flex items-center gap-6 pt-4">
-              <NuxtLink to="/contact" class="btn-luxe shine magnetic-btn">
-                Commencer un projet
-              </NuxtLink>
-              <NuxtLink to="/portfolio" class="text-[#8b8b9a] hover:text-[#4a90d9] transition-colors duration-400 text-sm tracking-wider uppercase line-draw">
-                Voir nos réalisations →
-              </NuxtLink>
-            </div>
+      <!-- Grid pattern overlay -->
+      <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22%234a90d9%22%20fill-opacity%3D%220.03%22%20fill-rule%3D%22evenodd%22%3E%3Cpath%20d%3D%22M0%2040L40%200H20L0%2020M40%2040V20L20%2040%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E')] opacity-50"></div>
+      
+      <!-- Content -->
+      <div class="container-luxe relative z-10 pt-32 pb-20">
+        <div class="max-w-5xl mx-auto text-center">
+          
+          <!-- Eyebrow -->
+          <div class="inline-flex items-center gap-2 px-4 py-2 mb-8 border border-[#4a90d9]/30 rounded-full reveal">
+            <span class="w-2 h-2 bg-[#4a90d9] rounded-full animate-pulse"></span>
+            <span class="text-[#4a90d9] text-xs uppercase tracking-widest">Agence Web Bordeaux</span>
           </div>
           
-          <!-- Espace droite avec élément visuel -->
-          <div class="relative h-[600px] hidden lg:block reveal reveal-delay-3">
-            <div class="absolute inset-0 border border-[#4a90d9]/20 rounded-sm">
-              <div class="absolute top-8 left-8 right-8 bottom-8 border border-[#4a90d9]/10"></div>
+          <!-- Main headline -->
+          <h1 class="text-6xl md:text-8xl lg:text-9xl font-display text-[#f5f5f7] leading-[0.9] mb-8 reveal reveal-delay-1">
+            On crée des<br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#4a90d9] via-[#6bb3ff] to-[#4a90d9]">sites qui vendent</span>
+          </h1>
+          
+          <!-- Subheadline -->
+          <p class="text-xl md:text-2xl text-[#8b8b9a] font-light max-w-2xl mx-auto mb-12 leading-relaxed reveal reveal-delay-2">
+            Design premium, performances optimales, résultats mesurables. 
+            Votre site web devient votre meilleur commercial.
+          </p>
+          
+          <!-- CTA Buttons -->
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 reveal reveal-delay-3">
+            <NuxtLink to="/contact" class="btn-luxe text-lg px-10 py-5 shine">
+              Démarrer votre projet
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </NuxtLink>
+            <NuxtLink to="/portfolio" class="group flex items-center gap-2 text-[#f5f5f7] hover:text-[#4a90d9] transition-colors duration-300 text-lg">
+              <span class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:border-[#4a90d9] group-hover:bg-[#4a90d9]/10 transition-all">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </span>
+              <span>Voir nos réalisations</span>
+            </NuxtLink>
+          </div>
+          
+          <!-- Stats row -->
+          <div class="grid grid-cols-3 gap-8 max-w-2xl mx-auto reveal reveal-delay-4">
+            <div class="text-center">
+              <div class="text-4xl md:text-5xl font-display text-[#f5f5f7] mb-2">50+</div>
+              <div class="text-[#8b8b9a] text-xs uppercase tracking-widest">Projets</div>
             </div>
-            <div class="absolute inset-0 flex items-center justify-center">
-              <div class="text-center space-y-4">
-                <div class="text-7xl font-display text-[#4a90d9]">5+</div>
-                <div class="text-[#8b8b9a] uppercase tracking-widest text-sm">Années d'excellence</div>
-              </div>
+            <div class="text-center border-x border-white/10">
+              <div class="text-4xl md:text-5xl font-display text-[#f5f5f7] mb-2">100%</div>
+              <div class="text-[#8b8b9a] text-xs uppercase tracking-widest">Satisfaction</div>
+            </div>
+            <div class="text-center">
+              <div class="text-4xl md:text-5xl font-display text-[#f5f5f7] mb-2">5+</div>
+              <div class="text-[#8b8b9a] text-xs uppercase tracking-widest">Années</div>
             </div>
           </div>
         </div>
       </div>
       
-      <!-- Scroll indicator avec animation -->
-      <div class="absolute bottom-12 left-1/2 -translate-x-1/2 reveal reveal-delay-5">
-        <div class="w-px h-16 bg-gradient-to-b from-[#4a90d9] to-transparent animate-pulse"></div>
-      </div>
+      <!-- Bottom gradient fade -->
+      <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0a0a0f] to-transparent"></div>
     </section>
 
     <!-- Promise Banner -->
@@ -246,9 +265,6 @@
 
     <!-- Testimonials -->
     <TestimonialsSection />
-
-    <!-- Team Section -->
-    <TeamSection />
 
     <!-- FAQ Section -->
     <FAQSection />
